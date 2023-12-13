@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_default"
+    android:background="@color/primaryDark"
+    tools:context=".iu.registrarBovino.view.RegistrarBovinoActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guidelineStart"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guidelineEnd"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:tint="@color/white"
+        android:src="@drawable/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UseAppTint" />
+
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textViewTitle"
+        android:textColor="@color/white"
+        android:text="Ingrese los datos del bovino"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/imgBovino"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/toroactivity"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNumAreteBovino"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Ingrese el numero ded arete"
+        app:helperText="Obligatorio"
+        app:helperTextEnabled="true"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:counterMaxLength="30"
+        app:helperTextTextColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/imgBovino"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/code"
+        app:endIconTint="@color/white"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNumAreteBovino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="30"
+            android:textColor="@color/white"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width=""
+        android:layout_height=""
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAgregarBovino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="agregar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Guidelines para diseño de los campos de texto-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineTextCampStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.67"/>
+
+        <ImageView
+            android:id="@+id/ingBovino"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_bovino"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2"/>
+
+        <TextView
+            android:id="@+id/tvNumArete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numAreteText"
+            style="@style/textCardView"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintStart_toEndOf="@id/ingBovino"
+           />
+
+
+        <TextView
+            android:id="@+id/numArete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="384743"
+            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            style="@style/textViewContent"
+
+           />
+
+
+        <TextView
+            android:id="@+id/tvSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ingBovino"
+            app:layout_constraintTop_toBottomOf="@id/tvNumArete"
+            android:text="@string/textViewSexo"
+            style="@style/textCardView"
+        />
+        <TextView
+            android:id="@+id/genderType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Masculino"
+            app:layout_constraintTop_toBottomOf="@id/numArete"
+            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+            style="@style/textViewContent"
+            />
+
+        <TextView
+            android:id="@+id/tvPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvSexo"
+            android:text="@string/contentTextPeso"
+            style="@style/textCardView"
+            app:layout_constraintStart_toEndOf="@id/ingBovino"
+            />
+
+        <TextView
+            android:id="@+id/peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="23"
+            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/genderType"
+            style="@style/textViewContent"
+            />
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contentTextAño"
+            app:layout_constraintTop_toBottomOf="@id/tvPeso"
+            app:layout_constraintStart_toEndOf="@id/ingBovino"
+            style="@style/textCardView"
+            />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2019"
+            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/peso"
+            style="@style/textViewContent"
+            />
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contentTextType"
+            app:layout_constraintStart_toEndOf="@id/ingBovino"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            style="@style/textCardView"
+            />
+
+        <TextView
+            android:id="@+id/tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Bovino"
+            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            style="@style/textViewContent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

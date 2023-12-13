@@ -1,40 +1,47 @@
 package com.devdroid.ranchtracker.iu.ovino.view.adapter
 
-import android.content.Context
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.devdroid.ranchtracker.R
-import com.devdroid.ranchtracker.data.models.OvinoModel
+import com.devdroid.ranchtracker.databinding.ItemOvinoBinding
+import com.devdroid.ranchtracker.domain.model.OvinoItem
 
-class OvinoAdapter(
-    private var ovinos: MutableList<OvinoEntity>
-): RecyclerView.Adapter<OvinoAdapter.ViewHolder>() {
+class OvinoAdapter(private val listener: OnItemClickListener) :
+    ListAdapter<OvinoItem, OvinoAdapter.OvinoViewHolder>(DiffCallback()) {
 
-
-    private lateinit var mContext: Context
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        mContext = parent.context
-        val view = LayoutInflater.from(mContext).inflate(R.layout.item_ovino, parent, false)
-
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OvinoViewHolder {
+        return OvinoViewHolder(
+            ItemOvinoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
-    override fun getItemCount(): Int = ovinos.size
+    override fun onBindViewHolder(holder: OvinoViewHolder, position: Int) {
+        val ovino = getItem(position)
+        holder.bind(ovino)
+    }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ovino = ovinos[position]
+    inner class OvinoViewHolder(private val binding: ItemOvinoBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        with(holder){
+        fun bind(ovino: OvinoItem) {
+            binding.apply {
 
+            }
         }
     }
 
-    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+    interface OnItemClickListener {
+        fun onItemClickDelete(ovino: OvinoItem)
+    }
 
+    class DiffCallback : DiffUtil.ItemCallback<OvinoItem>() {
+        override fun areItemsTheSame(oldItem: OvinoItem, newItem: OvinoItem) =
+            oldItem.id == newItem.id
 
-
+        override fun areContentsTheSame(oldItem: OvinoItem, newItem: OvinoItem) =
+            oldItem == newItem
     }
 }
